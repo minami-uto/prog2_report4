@@ -1,7 +1,5 @@
 package jp.ac.uryukyu.ie.e245755;
 
-import org.checkerframework.checker.units.qual.t;
-
 /**
  * ヒーロークラス。
  *  String name; //敵の名前
