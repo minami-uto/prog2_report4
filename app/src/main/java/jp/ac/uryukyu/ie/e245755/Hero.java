@@ -1,5 +1,7 @@
 package jp.ac.uryukyu.ie.e245755;
 
+import org.checkerframework.checker.units.qual.t;
+
 /**
  * ヒーロークラス。
  *  String name; //敵の名前
@@ -9,11 +11,27 @@ package jp.ac.uryukyu.ie.e245755;
  * Created by tnal on 2016/11/13.
  */
 public class Hero {
-    public String name;
-    public int hitPoint;
-    public int attack;
-    public boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
+    public Hero(String _name, int _hitPoint, int _attack, boolean _dead){
+        this.setName(_name);
+        this.setHitPoint(_hitPoint);
+        this.setAttack(_attack);
+        this.setDead(_dead);
+    }
+
+    public void setName(String _name){this.name = _name;}
+    public void setHitPoint(int _hitPoint){this.hitPoint = _hitPoint;}
+    public void setAttack(int _attack){this.attack = _attack;}
+    public void setDead(boolean _dead){this.dead = _dead;}
+
+    public String getName(){return this.name;}
+    public int getHitPoint(){return this.hitPoint;}
+    public boolean getDead(){return this.dead;}
+    
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
      * @param name ヒーロー名
@@ -35,7 +53,7 @@ public class Hero {
      */
     public void attack(Enemy e){
         int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.name, damage);
+        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.getName(), damage);
         e.wounded(damage);
     }
 
