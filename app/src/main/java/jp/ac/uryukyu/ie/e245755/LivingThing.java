@@ -45,6 +45,7 @@ public class LivingThing {
 
     public String getName(){return this.name;}
     public int getHitPoint(){return this.hitPoint;}
+    public int getAttack(){return this.attack;}
 
     /**
      * 敵・Heroへ攻撃するメソッド。
@@ -52,9 +53,9 @@ public class LivingThing {
      * @param opponent 攻撃対象
      */
     public void attack(LivingThing opponent){
-        if(hitPoint >= 0){
-            int damage = (int)(Math.random() * attack);
-            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, opponent.getName(), damage);
+        if(getHitPoint() >= 0){
+            int damage = (int)(Math.random() * getAttack());
+            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
             opponent.wounded(damage);
         }
     }
